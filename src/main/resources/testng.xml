@@ -1,0 +1,39 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Poker Suite" verbose="1" >
+    <!-- Comment block -->
+    <parameter name="validLogin" value="admin"/>
+    <parameter name="validPassword" value="123"/>
+
+    <test name="Poker Player Validation Tests">
+        <groups>
+            <run>
+                <include name="validation"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="ua.lilu.tests.LoginTests"/>
+            <class name="ua.lilu.tests.CRUDUserTests"/>
+        </classes>
+    </test>
+
+    <test name="Poker Player Functional Tests">
+        <parameter name="ttl" value="Players"/>
+        <groups>
+            <run>
+                <include name="functional"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="ua.lilu.tests.LoginTests"/>
+            <class name="ua.lilu.tests.CRUDUserTests"/>
+            <class name="ua.lilu.tests.SearchTests"/>
+        </classes>
+    </test>
+
+    <test name="Drag and drop Tests">
+        <classes>
+            <class name="ua.lilu.draganddrop.ActionTest"/>
+        </classes>
+    </test>
+
+</suite>
